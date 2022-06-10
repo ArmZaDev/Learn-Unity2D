@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Cube : MonoBehaviour
 {
+    public Rigidbody2D myRigidBody2d;
 
     int numberOfTimes = 5;
     string nameOftheKey = "ENTER";
@@ -13,11 +14,11 @@ public class Cube : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("If you press the up arrow you'll JUMP!!");
-        Debug.Log("If you press the right arrow " + numberOfTimes + " you'll move!");
+        //Debug.Log("If you press the up arrow you'll JUMP!!");
+        //Debug.Log("If you press the right arrow " + numberOfTimes + " you'll move!");
 
-        Debug.LogWarning("if you press the " + nameOftheKey + ", nothig happens");
-        Debug.LogError("if you smash the heybord at a speed of " + speedOfBreaking + " nothing happens, you just cry");
+        //Debug.LogWarning("if you press the " + nameOftheKey + ", nothig happens");
+        //Debug.LogError("if you smash the heybord at a speed of " + speedOfBreaking + " nothing happens, you just cry");
     }
 
     // Update is called once per frame
@@ -25,22 +26,22 @@ public class Cube : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            print("up arrow key was pressed");
+            myRigidBody2d.velocity = new Vector2(0f,10f);
         }
 
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            print("Down arrow key was pressed");
+            myRigidBody2d.velocity = new Vector2(0f, -10f);
         }
-
+      
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            print("Left arrow key was pressed");
+            myRigidBody2d.velocity = new Vector2(-10f, 0f);
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            print("Right arrow key was pressed");
+            myRigidBody2d.velocity = new Vector2(10f, 0f);
         }
     }
 }
