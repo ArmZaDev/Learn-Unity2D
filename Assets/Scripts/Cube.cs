@@ -14,36 +14,26 @@ public class Cube : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Debug.Log("If you press the up arrow you'll JUMP!!");
-        //Debug.Log("If you press the right arrow " + numberOfTimes + " you'll move!");
-
-        //Debug.LogWarning("if you press the " + nameOftheKey + ", nothig happens");
-        //Debug.LogError("if you smash the heybord at a speed of " + speedOfBreaking + " nothing happens, you just cry");
+        //PrintingToOurConsol();
     }
+   
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            myRigidBody2d.velocity = new Vector2(0f,10f);
-        }
+        MovingOurCube();
+        OutOfBourndsPriter();
+    }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            myRigidBody2d.velocity = new Vector2(0f, -10f);
-        }
-      
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            myRigidBody2d.velocity = new Vector2(-10f, 0f);
-        }
+    public string PritingfromOutside(int value)
+    {
+        string pritnigSomething = "The value we were sent is " + value;
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            myRigidBody2d.velocity = new Vector2(10f, 0f);
-        }
-        
+        return pritnigSomething;
+    }
+
+    private void OutOfBourndsPriter()
+    {
         if (transform.position.x > 9.5f)
         {
             Debug.LogWarning("Our cube is out of bounds to the Right side!");
@@ -56,5 +46,37 @@ public class Cube : MonoBehaviour
         {
             Debug.LogWarning("Our cubee is out of bounds to the Upper side!");
         }
+    }
+
+    private void MovingOurCube()
+    {
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            myRigidBody2d.velocity = new Vector2(0f, 10f);
+        }
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            myRigidBody2d.velocity = new Vector2(0f, -10f);
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            myRigidBody2d.velocity = new Vector2(-10f, 0f);
+        }
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            myRigidBody2d.velocity = new Vector2(10f, 0f);
+        }
+    }
+
+    private void PrintingToOurConsol()
+    {
+        Debug.Log("If you press the up arrow you'll JUMP!!");
+        Debug.Log("If you press the right arrow " + numberOfTimes + " you'll move!");
+
+        Debug.LogWarning("if you press the " + nameOftheKey + ", nothig happens");
+        Debug.LogError("if you smash the heybord at a speed of " + speedOfBreaking + " nothing happens, you just cry");
     }
 }
