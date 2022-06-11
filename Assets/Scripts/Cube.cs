@@ -43,5 +43,18 @@ public class Cube : MonoBehaviour
         {
             myRigidBody2d.velocity = new Vector2(10f, 0f);
         }
+        
+        if (transform.position.x > 9.5f)
+        {
+            Debug.LogWarning("Our cube is out of bounds to the Right side!");
+        }
+        else if (transform.position.x < -9.5f)
+        {
+            Debug.LogWarning("Our cube is out of bounds to the Left side!");
+        }
+        else if (transform.position.y > 5.5f)
+        {
+            Debug.LogWarning("Our cubee is out of bounds to the Upper side!");
+        }
     }
 }
